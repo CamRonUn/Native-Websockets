@@ -1,5 +1,5 @@
 import express from 'express';
-
+import {matchRouter} from './routes/matches.js'
 
 const PORT = 8000;
 const app = express();
@@ -11,6 +11,8 @@ app.use(express.json());
 app.get('/getroute', (req, res) => {
     res.send("Hello! This is a short message from getroute." );
 });
+
+app.use('/matches', matchRouter)
 
 // Start the server and log the URL
 app.listen(PORT, () => {
