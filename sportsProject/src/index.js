@@ -1,5 +1,6 @@
 import express from 'express';
 import {matchRouter} from './routes/matches.js'
+import {commentaryRouter} from './routes/commentary.js'
 import http from 'http'
 import dotenv from 'dotenv';
 import { attachWebSocketServer } from './ws/server.js';
@@ -23,9 +24,12 @@ app.get('/getroute', (req, res) => {
 app.use(securityMiddleware())
 
 app.use('/matches', matchRouter)
+app.use('/matches/:id/commentary', commentaryRouter)
 
-const {broadcastMatchCreated} = attachWebSocketServer(server)
-app.locals.broadcastMatchCreated = broadcastMatchCreated
+const {broadcastMatchCreated, broadcastCommentary} = attachWebSocketServer(server);
+app.locals.broadcastMatchCreated = broadcastMatchCreated;
+app.locals.broadcastCommentary = broadcastCommentary;
+
 
 // Start the server and log the URL
 server.listen(PORT, HOST, () => {
