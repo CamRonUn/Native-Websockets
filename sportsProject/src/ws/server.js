@@ -22,7 +22,7 @@ export function attachWebSocketServer(server) {
         maxPayload: 1024 * 1024, 
     })
 
-    wss.on('connection', async (socket,req) => {
+    wss.on('upgrade', async (req,socket,head) => {
         if(wsArcjet){
             try{
                 const decision = await wsArcjet.protect(req);
@@ -39,6 +39,9 @@ export function attachWebSocketServer(server) {
                 return
             }
         }
+    })
+
+    wss.on('connection', (socket,req) => {
 
         sendJson(socket, { type: 'welcome'})
 
