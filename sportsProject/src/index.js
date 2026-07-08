@@ -1,3 +1,6 @@
+import AgentAPI from 'apminsight';
+AgentAPI.config()
+
 import express from 'express';
 import {matchRouter} from './routes/matches.js'
 import {commentaryRouter} from './routes/commentary.js'
@@ -5,6 +8,7 @@ import http from 'http'
 import dotenv from 'dotenv';
 import { attachWebSocketServer } from './ws/server.js';
 import {securityMiddleware} from '../arcjet.js'
+
 
 dotenv.config(); 
 
