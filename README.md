@@ -2,6 +2,7 @@
 
 - [Video Link](https://www.youtube.com/watch?v=pbOXOY78dNA)
 - [Full hand written notes](https://drive.google.com/drive/folders/1lUiIDMHbiA0PfveW3w6FjblAL_OjzUYf?usp=drive_link)
+- [basic arcjet template](https://github.com/CamRonUn/ArcJet-Template)
 
 - In this course i learnt how to use native websockets in JS, how websockets work and how to manage websockets. I also imporved my understanding in how to make secure, readable, reliable production ready API's. 
 
